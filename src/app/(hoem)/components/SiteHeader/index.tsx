@@ -1,10 +1,11 @@
-import { Icons } from "@/components/common/Icon";
+import { Icons } from "@/components/common";
 import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import MainNav from "../MainNav";
 import MobileNav from "../MobileNav";
+import ModeToggle from "@/components/common/ModeToggle";
 
 const SiteHeader = () => {
   const linkData = [
@@ -43,7 +44,7 @@ const SiteHeader = () => {
             "space-x-2"
           )}
         >
-          <nav className="flex items-center">
+          <nav className="flex items-center gap-2">
             {linkData.map((link, index) => (
               <Link
                 key={index}
@@ -65,6 +66,7 @@ const SiteHeader = () => {
                 </div>
               </Link>
             ))}
+            <ModeToggle />
             <MobileNav />
           </nav>
         </div>

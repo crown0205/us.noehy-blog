@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import SiteHeader from "./(hoem)/components/SiteHeader";
+import ThemeProviders from "./(hoem)/components/ThemeProviders";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -19,10 +20,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("min-h-screen bg-background font-sans", inter.variable)}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable
+        )}
       >
-        <SiteHeader />
-        {children}
+        <div
+          className={cn(
+            "relative",
+            "min-h-dvh",
+            "flex flex-col",
+            "bg-background"
+          )}
+        >
+          <ThemeProviders>
+            <SiteHeader />
+            {children}
+          </ThemeProviders>
+        </div>
       </body>
     </html>
   );

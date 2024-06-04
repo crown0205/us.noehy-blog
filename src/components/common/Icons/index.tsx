@@ -1,8 +1,6 @@
-import Logo from "@assets/icons/logo.svg";
-
 type IconProps = React.HtmlHTMLAttributes<SVGSVGElement>;
 
-export const Icons = {
+const Icons = {
   logo: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,3 +79,5 @@ export const Icons = {
     </svg>
   ),
 };
+
+export default Icons;

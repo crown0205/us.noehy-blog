@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@/components/common/Icon";
+import { Icons } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { siteConfig } from "@/config/site";

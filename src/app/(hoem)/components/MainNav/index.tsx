@@ -1,5 +1,5 @@
 "use client";
-import { Icons } from "@/components/common/Icon";
+import { Icons } from "@/components/common";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
