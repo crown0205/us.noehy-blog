@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import SiteHeader from "./(hoem)/components/SiteHeader";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body
         className={cn("min-h-screen bg-background font-sans", inter.variable)}
       >
+        <SiteHeader />
         {children}
       </body>
     </html>
