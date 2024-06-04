@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import MainNav from "../MainNav";
+import MobileNav from "../MobileNav";
 
 const SiteHeader = () => {
   const linkData = [
@@ -42,7 +43,7 @@ const SiteHeader = () => {
             "space-x-2"
           )}
         >
-          <nav>
+          <nav className="flex items-center">
             {linkData.map((link, index) => (
               <Link
                 key={index}
@@ -54,7 +55,9 @@ const SiteHeader = () => {
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
                     "w-10 px-0",
-                    "rounded-[50%]"
+                    "rounded-[50%]",
+                    // NOTE : sm 이상에서만 보이기
+                    "hidden sm:inline-flex"
                   )}
                 >
                   {link.icon}
@@ -62,6 +65,7 @@ const SiteHeader = () => {
                 </div>
               </Link>
             ))}
+            <MobileNav />
           </nav>
         </div>
       </div>

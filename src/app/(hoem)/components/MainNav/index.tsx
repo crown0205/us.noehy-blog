@@ -18,7 +18,8 @@ const MainNav = () => {
         href="/blog"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
-          pathname === "/blog" ? "text-foreground" : "text-foreground/60"
+          pathname === "/blog" ? "text-foreground" : "text-foreground/60",
+          "hidden sm:inline-block"
         )}
       >
         Blog
@@ -27,7 +28,8 @@ const MainNav = () => {
         href="/about"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
-          pathname === "/about" ? "text-foreground" : "text-foreground/60"
+          pathname === "/about" ? "text-foreground" : "text-foreground/60",
+          "hidden sm:inline-block"
         )}
       >
         About
