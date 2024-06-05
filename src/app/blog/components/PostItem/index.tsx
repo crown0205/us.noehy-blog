@@ -13,22 +13,17 @@ interface IPostItemProps {
   tags: string[];
   coverImage: string;
   published: boolean;
+  slugAsParams: string;
 }
 
 const PostItem = (props: IPostItemProps) => {
-  const { slug, title, description, date, tags, coverImage, published } = props;
-
-  if (!published) {
-    return null;
-  }
-
-  console.log("PostItem", { slug, title, description, date, tags, coverImage });
+  const { title, description, date, tags, coverImage, slugAsParams } = props;
 
   return (
     <article
       className={cn("flex flex-col gap-2", "border-b border-border py-3")}
     >
-      <Link href="/blog/first-post">
+      <Link href={`/blog/${slugAsParams}`}>
         {/* TODO : img 사이즈 수정 */}
         <Image
           className={cn(
