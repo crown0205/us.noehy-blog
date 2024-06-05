@@ -11,18 +11,30 @@ interface IPostItemProps {
   description?: string;
   date: string;
   tags: string[];
-  coverImage: string;
+  thumbnail: string;
   published: boolean;
   slugAsParams: string;
 }
 
 const PostItem = (props: IPostItemProps) => {
-  const { title, description, date, tags, coverImage, slugAsParams } = props;
+  const { title, description, date, tags, thumbnail, slugAsParams, slug } =
+    props;
+
+  console.log({ slugAsParams, slug });
 
   return (
     <article
       className={cn("flex flex-col gap-2", "border-b border-border py-3")}
     >
+      {/* TODO : slug 수정
+       * 현재는 파일 경로를 그대로 사용하고 있음.
+       * slug를 직접 지정해서 사용하도록 수정.
+       *
+       * ex )
+       * { slugAsParams: 'react1', slug: 'react/react1' }
+       * { slugAsParams: 'next1', slug: 'next/next1' }
+       *
+       */}
       <Link href={`/blog/${slugAsParams}`}>
         {/* TODO : img 사이즈 수정 */}
         <Image
@@ -32,7 +44,7 @@ const PostItem = (props: IPostItemProps) => {
             "min-h-[200px] max-h-[300px]",
             "rounded-md"
           )}
-          src={coverImage}
+          src={thumbnail}
           alt={`thumbnail for ${title}`}
           width={800}
           height={400}

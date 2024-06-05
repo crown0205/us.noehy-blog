@@ -1,0 +1,92 @@
+---
+slug: asset-town-provide-cdn-using-webhook-and-cloudflare
+title: 리액트 훅 사용하기
+description: 훅을 사용하는 방법과 사용 예시
+date: 2024-04-06
+tags: ['react']
+thumbnail: /assets/contents/react/react1.png
+published: true
+---
+
+# 리액트 훅 (React Hooks)
+리액트 훅은 함수형 컴포넌트에서 클래스형 컴포넌트의 기능을 사용할 수 있도록 하는 새로운 기능입니다. 2018년 React 16.8 버전에서 도입되었으며, 상태 관리, 생명주기, 리액트 컨텍스트 등 다양한 기능을 제공합니다. 훅은 클래스형 컴포넌트에서 사용했던 this 키워드 대신 사용되며, 함수형 컴포넌트를 더욱 간결하고 유연하게 만들어 줍니다.
+
+사용 예시
+1. 상태 관리:
+
+```jsx
+import React, { useState } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>카운트: {count}</p>
+      <button onClick={() => setCount(count + 1)}>증가</button>
+    </div>
+  );
+}
+```
+위 코드는 useState 훅을 사용하여 카운트 상태를 관리합니다. useState 훅은 초기 상태 값과 상태 업데이트 함수를 반환합니다. 컴포넌트 내에서 상태 값을 참조하고 업데이트 함수를 사용하여 상태를 변경할 수 있습니다.
+
+### 생명주기:
+
+```jsx
+import React, { useEffect } from 'react';
+
+function MyComponent() {
+  useEffect(() => {
+    console.log('컴포넌트가 마운트되었습니다.');
+    return () => console.log('컴포넌트가 언마운트되었습니다.');
+  }, []);
+
+  return (
+    <div>
+      <p>컴포넌트가 실행되고 있습니다.</p>
+    </div>
+  );
+}
+```
+위 코드는 useEffect 훅을 사용하여 컴포넌트 마운트 및 언마운트 시점에 실행되는 함수를 정의합니다. 빈 배열 ([])을 두 번째 인수로 전달하면 컴포넌트 렌더링 후 한 번만 실행됩니다.
+
+### 리액트 컨텍스트:
+
+```jsx
+import React, { useContext } from 'react';
+
+const ThemeContext = React.createContext({ theme: 'light' });
+
+function MyComponent() {
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <div className={`theme-${theme}`}>
+      <p>테마: {theme}</p>
+    </div>
+  );
+}
+```
+위 코드는 useContext 훅을 사용하여 리액트 컨텍스트에서 값을 가져옵니다. ThemeContext는 테마 정보를 담고 있으며, MyComponent 컴포넌트는 useContext 훅을 통해 컨텍스트에서 테마 값을 참조할 수 있습니다.
+
+# 작동 원리
+
+리액트 훅은 React Context API와 같은 내부 기능을 활용하여 작동합니다. 훅 함수는 컴포넌트 함수 내에서 호출되며, 컴포넌트의 상태, 생명주기, 컨텍스트 등과 관련된 정보를 제공합니다. 훅 함수는 컴포넌트를 재사용 가능하고 유지 관리하기 쉬운 코드로 만들 수 있도록 도와줍니다.
+
+## 장점
+
+함수형 컴포넌트의 간결성 유지: 클래스형 컴포넌트의 복잡성 없이 상태 관리, 생명주기, 컨텍스트 등의 기능을 제공합니다.
+재사용 가능성 향상: 훅은 쉽게 추출하고 다른 컴포넌트에서 사용할 수 있어 코드 재사용성을 높입니다.
+유지 관리 용이: 훅은 코드를 더욱 명확하고 이해하기 쉽게 만들어 유지 관리를 용이하게 합니다.
+테스트 용이: 훅 기반 컴포넌트는 테스트하기가 더욱 쉽습니다.
+
+## 결론
+
+리액트 훅은 함수형 컴포넌트에서 클래스형 컴포넌트의 기능을 사용할 수 있도록 하는 강력한 기능입니다.
+훅을 사용하면 코드를 더욱 간결하고 유연하게 작성할 수 있으며, 컴포넌트의 재사용성과 유지 관리성을 높일 수 있습니다. 
+훅을 통해 리액트 애플리케이션을 더욱 효율적으로 개발할 수 있습니다.
+
+
+## 참고 자료
+[React Hooks 공식 문서](https://ko.reactjs.org/docs/hooks-intro.html)
+

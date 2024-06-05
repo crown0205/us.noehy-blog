@@ -11,11 +11,11 @@ const posts = defineCollection({
   schema: s
     .object({
       // TODO : slug를 사용하지 않는다면.. 어떻게 해야할까?
-      // slug: s.string(), // 파일 경로에서 슬러그 자동 생성
       slug: s.path(), // 조드 프리미티브 타입
-      title: s.string().max(100), // 파일 경로에서 슬러그 자동 생성
+      // slug: s.string(), // 파일 지정
+      title: s.string().max(100), // 문자열, 최대 100자
       description: s.string().max(999).optional(),
-      coverImage: s.string(), // 파일 경로
+      thumbnail: s.string(), // image url
       tags: s.array(s.string()), // 문자열 배열
       date: s.isodate(), // 입력 날짜 문자열, 출력 ISO 날짜 문자열
       published: s.boolean().default(true), // 기본값 true
