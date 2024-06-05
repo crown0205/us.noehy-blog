@@ -1,5 +1,6 @@
 import { posts } from "#site/contents";
 import MdxComponent from "@/components/MdxComponents/MdxComponent";
+import "@/styles/mdx.css";
 import { cn, formatDate } from "@/lib/utils";
 import Image from "next/image";
 import { notFound } from "next/navigation";

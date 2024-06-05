@@ -40,17 +40,21 @@ const components = {
     />
   ),
 
-  a: (props: any) => (
-    <a
-      className={cn(
-        "font-semibold dark:text-[#08bae7] text-[#4299e1] no-underline break-keep break-words",
-        "hover:underline"
-      )}
-      target="_blank"
-      {...props}
-    />
-  ),
+  a: (props: any) => {
+    const blankCheck =
+      props["aria-label"] === "Link to section" ? "" : "_blank";
 
+    return (
+      <a
+        className={cn(
+          "font-semibold dark:text-[#08bae7] text-[#4299e1] no-underline break-keep break-words",
+          "hover:underline"
+        )}
+        target={blankCheck}
+        {...props}
+      />
+    );
+  },
   strong: (props: any) => (
     <strong
       className="font-bold text-[#1d305a] dark:text-[#d7f3fa]"
@@ -58,13 +62,24 @@ const components = {
     />
   ),
 
+  pre: (props: any) => (
+    <pre
+      className={
+        cn()
+        // "[&_code]:font-normal [&_code]:text-current [&_code]:bg-inherit]"
+      }
+      {...props}
+    />
+  ),
   code: (props: any) => (
     <code
-      className={cn(
-        "text-[16px] font-bold text-[#243c70] bg-[#f5f5f5]",
-        "dark:text-[#d7f3fa] dark:bg-[#1a1a1a]",
-        "rounded-md p-1"
-      )}
+      className={
+        cn()
+        // [ ] : 왜 스타일을 적용했는지 체크 하기
+        // "text-[16px] font-bold text-[#243c70] bg-[#f5f5f5]"
+        // "dark:text-[#d7f3fa] dark:bg-[#1a1a1a]",
+        // "rounded-md p-1"
+      }
       {...props}
     />
   ),
@@ -72,6 +87,8 @@ const components = {
   blockquote: (props: any) => (
     <Callout className="[&_strong]:text-black [&_p]:m-0" {...props} />
   ),
+
+  // [ ] : image 컴포넌트 만들기
 };
 
 interface MdxProps {
