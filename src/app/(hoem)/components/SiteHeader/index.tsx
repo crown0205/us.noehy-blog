@@ -14,7 +14,7 @@ const SiteHeader = () => {
       icon: <Icons.github className="w-4 h-4" />,
       label: "GitHub",
     },
-    // TODO : link 추가
+    // [ ] // FIX - link 추가
     // {
     //   href: siteConfig.links.twitter,
     //   icon: <Icons.twitter className="w-4 h-4" />,

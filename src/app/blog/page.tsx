@@ -30,6 +30,7 @@ const BlogPage = async () => {
             Blog
           </h1>
           <p className="text-xl text-muted-foreground">
+            {/* [ ] : 블로그 설명 글 수정 */}
             My ramblings on all things web dev.
           </p>
         </div>

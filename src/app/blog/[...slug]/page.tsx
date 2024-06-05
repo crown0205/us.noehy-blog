@@ -12,19 +12,17 @@ interface IPostPageProps {
 
 const getPostFromPrams = async (params: IPostPageProps["params"]) => {
   const slug = params.slug.join("/");
-  console.log(posts.length);
-  const post = posts.find((post) => {
-    console.log({ post, slug });
-    return post.slugAsParams === slug;
-  });
+
+  const post = posts.find((post) => post.slug === slug);
 
   return post;
 };
 
+// NOTE : generateStaticParams 함수는 페이지의 정적 경로를 생성한다.
 export const generateStaticParams = async (): Promise<
   IPostPageProps["params"][]
 > => {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+  return posts.map((post) => ({ slug: [post.slug] }));
 };
 
 const PostPage = async ({ params }: IPostPageProps) => {
@@ -51,7 +49,7 @@ const PostPage = async ({ params }: IPostPageProps) => {
         ) : null}
 
         <p className="text-muted-foreground text-sm">
-          {/* TODO : TAG 만들기 */}
+          {/* [ ] : TAG 컴포넌트 만들기 */}
           {formatDate(date)} · {tags.join(", ")}
         </p>
       </div>
