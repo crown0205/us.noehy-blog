@@ -87,11 +87,12 @@ const PostPage = async ({ params }: IPostPageProps) => {
 export default PostPage;
 
 const PostToc = () => {
+  // NOTE : mdx style 불러와서 여기서는 style 초기화 해줘야됨.
   return (
     <div
       className={cn(
         "hidden xl:block",
-        "sticky top-[160px]",
+        "fixed top-[160px] right-[8%]",
         "h-[fit-content] w-[fit-content] min-w-[100px] max-w[150px]",
         "p-4"
       )}
