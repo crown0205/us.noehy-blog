@@ -1,9 +1,9 @@
 import { posts } from "#site/contents";
-import MdxComponent from "@/components/MdxComponents/MdxComponent";
+import { cn } from "@/lib/utils";
 import "@/styles/mdx.css";
-import { cn, formatDate } from "@/lib/utils";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import PostContent from "./components/PostContent";
+import PostToc from "./components/PostToc";
 
 interface IPostPageProps {
   params: {
@@ -26,14 +26,23 @@ export const generateStaticParams = async (): Promise<
   return posts.map((post) => ({ slug: [post.slug] }));
 };
 
+export interface IPost {
+  date: string;
+  slug: string;
+  title: string;
+  thumbnail: string;
+  tags: string[];
+  published: boolean;
+  body: string;
+  description?: string | undefined;
+}
+
 const PostPage = async ({ params }: IPostPageProps) => {
-  const post = await getPostFromPrams(params);
+  const post: IPost | undefined = await getPostFromPrams(params);
 
   if (!post) {
     notFound();
   }
-
-  const { thumbnail, title, tags, body, date, description } = post;
 
   return (
     <article
@@ -46,76 +55,10 @@ const PostPage = async ({ params }: IPostPageProps) => {
         "xl:max-w-6xl xl:px-0"
       )}
     >
-      <div className={cn("w-full xl:max-w-[800px]")}>
-        <div className="flex flex-col mt-10">
-          <h1 className="mb-2 text-4xl font-black">{title}</h1>
-          {description ? (
-            <p className="text-xl m-0 text-muted-foreground">{description}</p>
-          ) : null}
-          <p className="text-muted-foreground text-sm">
-            {/* [ ] : TAG 컴포넌트 만들기 */}
-            {formatDate(date)} · {tags.join(", ")}
-          </p>
-        </div>
-
-        <hr className="my-4" />
-
-        <Image
-          className={cn(
-            "bg-gray-400",
-            "w-[100%] ",
-            "min-h-[200px] max-h-[300px]",
-            "rounded-md border-[2px]"
-          )}
-          src={thumbnail}
-          alt={`thumbnail for ${title}`}
-          width={800}
-          height={400}
-          priority
-          style={{
-            objectFit: "cover",
-          }}
-        />
-
-        <MdxComponent code={body} />
-      </div>
+      <PostContent {...post} />
       <PostToc />
     </article>
   );
 };
 
 export default PostPage;
-
-const PostToc = () => {
-  // NOTE : mdx style 불러와서 여기서는 style 초기화 해줘야됨.
-  return (
-    <div
-      className={cn(
-        "hidden xl:block",
-        "fixed top-[160px] right-[8%]",
-        "h-[fit-content] w-[fit-content] min-w-[100px] max-w[150px]",
-        "p-4"
-      )}
-    >
-      <h2 className="text-xl font-bold">Table of Contents</h2>
-
-      <ul className={cn("list-none no-underline", "flex flex-col gap-0")}>
-        <li className="no-underline m-0 p-0">
-          <a className="no-underline hover:underline" href="#test">
-            <small>Test</small>
-          </a>
-        </li>
-        <li className="no-underline m-0 p-0">
-          <a className="no-underline hover:underline" href="#test">
-            <small>Test</small>
-          </a>
-        </li>
-        <li className="no-underline m-0 p-0">
-          <a className="no-underline hover:underline" href="#test">
-            <small>Test</small>
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
-};
