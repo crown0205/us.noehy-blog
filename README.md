@@ -18,7 +18,11 @@
 
 # 기능 구햔
 
-[ ] : desktop 레이아웃 변경
+[ ] : !!! desktop 레이아웃 변경
+
+[ ] : Toc (table of contents) 기능 개발
+
+[ ] : !! 컨텐츠 썸네일을 contents 폴더에서 관리 할수 있도록 변경하기
 
 [ ] : pageNation
 

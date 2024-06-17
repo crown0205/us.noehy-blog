@@ -19,15 +19,20 @@ const PostItem = (props: IPostItemProps) => {
   const { title, description, date, tags, thumbnail, slug } = props;
 
   return (
-    <article
-      className={cn("flex flex-col gap-2", "border-b border-border py-3")}
-    >
-      <Link href={`/blog/${slug}`}>
+    <article className={cn("border-b border-border py-3", "h-full flex")}>
+      {/* [ ] : 컨텐츠 썸네일 넣을시 이미지 사이즈에 따라서 height 차이 남 - 체크 필요 */}
+      <Link
+        href={`/blog/${slug}`}
+        className={cn(
+          "flex flex-col gap-2 justify-between",
+          "h-full w-full flex-1"
+        )}
+      >
         {/* [ ] : img 사이즈 수정 */}
         <Image
           className={cn(
             "bg-gray-400",
-            "w-[100%] ",
+            "min-w-[100%]",
             "min-h-[200px] max-h-[300px]",
             "rounded-md"
           )}

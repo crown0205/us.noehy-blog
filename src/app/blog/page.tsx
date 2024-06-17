@@ -43,7 +43,7 @@ const BlogPage = async () => {
           // NOTE : md(768px) 이상에서만 2개씩 보이기
           <div className={cn("md:flex md:flex-wrap md:flex-1 md:gap-4")}>
             {postsData.map((post) => (
-              <li key={post.slug} className={cn("md:max-w-[48%]")}>
+              <li key={post.slug} className={cn("max-w-[100%] md:max-w-[48%]")}>
                 <PostItem {...post} />
               </li>
             ))}
