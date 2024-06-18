@@ -22,7 +22,7 @@ const PostItem = (props: IPostItemProps) => {
     <article className={cn("border-b border-border py-3", "h-full flex")}>
       {/* [ ] : 컨텐츠 썸네일 넣을시 이미지 사이즈에 따라서 height 차이 남 - 체크 필요 */}
       <Link
-        href={`/blog/${slug}`}
+        href={`posts/${slug}`}
         className={cn(
           "flex flex-col gap-2 justify-between",
           "h-full w-full flex-1"

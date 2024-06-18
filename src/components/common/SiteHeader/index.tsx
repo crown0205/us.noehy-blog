@@ -40,7 +40,7 @@ const SiteHeader = () => {
         <MainNav />
         <div
           className={cn(
-            "flex flex-1 items-center justify-end ", //
+            "flex flex-1 items-center justify-end", //
             "space-x-2"
           )}
         >
