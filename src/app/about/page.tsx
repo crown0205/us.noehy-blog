@@ -10,6 +10,12 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "us.noeyh - about",
+  description: "about page",
+};
 
 const AboutPage = () => {
   // TODO : 추후 디자인 변경 필요
@@ -31,12 +37,6 @@ const AboutPage = () => {
   ];
 
   /**
-
-         * 직장명
-         * 기간
-         * 직책
-         * 성과 및 업무
-         *  - 상세 내용
 
    */
   const works = [
