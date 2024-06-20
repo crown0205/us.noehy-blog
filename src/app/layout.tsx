@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-import SiteHeader from "./(hoem)/components/SiteHeader";
-import ThemeProviders from "./(hoem)/components/ThemeProviders";
+import SiteHeader from "../components/common/SiteHeader";
+import ThemeProviders from "../components/common/ThemeProviders";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 

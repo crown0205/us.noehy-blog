@@ -2,6 +2,7 @@ import PostItem from "./components/PostItem";
 import { posts } from "#site/contents";
 import { cn, sortPost } from "@/lib/utils";
 
+// TODO : route를 이렇게 하는게 최선인지?
 const BlogPage = async () => {
   const postsData = sortPost(posts.filter((post) => post.published));
 

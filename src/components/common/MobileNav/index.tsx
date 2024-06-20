@@ -55,17 +55,6 @@ const MobileNav = () => {
               pathname === "/about" ? "text-foreground" : "text-foreground/60"
             )}
             onOpenChange={setOpen}
-            href="/blog"
-          >
-            Blog
-          </MobileLink>
-          <MobileLink
-            className={cn(
-              "font-medium transition-colors",
-              "hover:text-primary",
-              pathname === "/about" ? "text-foreground" : "text-foreground/60"
-            )}
-            onOpenChange={setOpen}
             href="/about"
           >
             About
