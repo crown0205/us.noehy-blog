@@ -2,8 +2,16 @@ import { NextRequest } from "next/server";
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/config/site";
 
+export const runtime = "edge";
+
+const interBold = fetch(
+  new URL("../../../../public/assets/fonts/Inter-Bold.ttf", import.meta.url)
+).then((res) => res.arrayBuffer());
+
 export async function GET(req: NextRequest) {
   try {
+    const fontBold = await interBold;
+
     const { searchParams } = req.nextUrl;
     const title = searchParams.get("title");
 
@@ -12,6 +20,8 @@ export async function GET(req: NextRequest) {
     }
 
     const heading = title.length > 140 ? title.slice(0, 140) + "..." : title;
+
+    console.log({ heading, title });
 
     return new ImageResponse(
       (
@@ -30,10 +40,10 @@ export async function GET(req: NextRequest) {
               <path d="M4 4a16 16 0 0 1 16 16" />
               <circle cx="5" cy="19" r="1" />
             </svg>
-            <p tw="ml-2 font-bold text-2xl">JollyBlog</p>
+            <p tw="ml-2 font-bold text-2xl">Us.noeyh-Blog</p>
           </div>
           <div tw="flex flex-col flex-1 py-10">
-            <div tw="flex text-xl uppercase font-bold tracking-tight font-normal">
+            <div tw="flex text-2xl uppercase font-bold tracking-tight font-normal">
               BLOG POST
             </div>
             <div tw="flex text-[80px] font-bold text-[50px]">{heading}</div>
@@ -46,7 +56,14 @@ export async function GET(req: NextRequest) {
           </div>
         </div>
       ),
-      { width: 1200, height: 630 }
+      // TODO : font test
+      {
+        width: 1200,
+        height: 630,
+        fonts: [
+          { name: "Inter", data: fontBold, style: "normal", weight: 700 },
+        ],
+      }
     );
   } catch (error) {
     return new Response("Failed to generate image", { status: 500 });
