@@ -3,12 +3,7 @@ import { posts } from "#site/contents";
 import { cn, sortPost } from "@/lib/utils";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "us.noeyh - blog",
-  description: "한걸음씩 나아가는 기록 공간인 블로그 입니다.",
-};
-
-// TODO : route를 이렇게 하는게 최선인지?
+// [ ] : route를 이렇게 하는게 최선인지?
 const BlogPage = async () => {
   const postsData = sortPost(posts.filter((post) => post.published));
 

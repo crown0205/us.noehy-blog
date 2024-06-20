@@ -18,7 +18,9 @@
 
 # 기능 구햔
 
-[ ] : !!! desktop 레이아웃 변경
+[x] : !!! desktop 레이아웃 변경
+
+[ ] : 파비콘 변경 및 로고 만들어서 교체
 
 [ ] : Toc (table of contents) 기능 개발
 

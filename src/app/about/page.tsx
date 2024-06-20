@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 };
 
 const AboutPage = () => {
-  // TODO : 추후 디자인 변경 필요
   // [ ] : 추후 디자인 변경 필요
   // [ ] : 컴포넌트 분리
   // [ ] : data constant로 분리
@@ -94,7 +93,7 @@ const AboutPage = () => {
       <section className="flex flex-col md:flex-row gap-8 items-center md:items-start my-8">
         <div className="min-w-48 max-w-48 flex flex-col gap-2">
           <div className="h-48 w-48 bg-gray-100 rounded-xl">
-            {/* TODO : image add */}
+            {/* [ ] : image add */}
             <img src="#" alt="#" />
           </div>
           {/* NOTE : Author */}
@@ -104,7 +103,7 @@ const AboutPage = () => {
           </p>
         </div>
         <p className="text-muted-foreground text-lg py-4 break-keep">
-          {/* TODO : word break 해주기 */}
+          {/* [ ] : word break 해주기 */}
           {/* 저는 제과제빵을 하다가 프런트엔드 개발로 전환했습니다. <br />
           저는 여러가지 앱을 사용하는 것을 좋아합니다. <br />
           불편한 사항을 직접 수정하고, 사용자 경험을 개선하는 데에 관심이 생겨
@@ -139,7 +138,7 @@ const AboutPage = () => {
           {stacks.map((stack) => (
             <li key={stack} className="mb-3">
               <HoverCard>
-                {/* TODO : Icon add */}
+                {/* [ ] : Icon add */}
                 <HoverCardTrigger className={cn("border p-2 rounded-md")}>
                   {stack}
                 </HoverCardTrigger>

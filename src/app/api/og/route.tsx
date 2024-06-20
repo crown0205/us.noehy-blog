@@ -56,7 +56,6 @@ export async function GET(req: NextRequest) {
           </div>
         </div>
       ),
-      // TODO : font test
       {
         width: 1200,
         height: 630,
