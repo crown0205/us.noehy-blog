@@ -172,7 +172,7 @@ const AboutPage = () => {
               <p className="text-muted-foreground">{work.achievement}</p>
               <ul className="flex flex-col gap-4">
                 {work.detail.map((detail) => (
-                  <Accordion key={detail.title} type="single">
+                  <Accordion key={detail.title} type="single" collapsible>
                     <AccordionItem value={detail.title}>
                       <li className="py-4 flex flex-col gap-2">
                         <AccordionTrigger>
