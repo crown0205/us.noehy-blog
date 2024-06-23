@@ -18,6 +18,7 @@ interface IPostItemProps {
 const PostItem = (props: IPostItemProps) => {
   const { title, description, date, tags, thumbnail, slug } = props;
 
+  console.log({ thumbnail });
 
   return (
     <article className={cn("border-b border-border py-3", "h-full flex")}>

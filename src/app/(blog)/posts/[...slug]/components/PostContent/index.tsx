@@ -9,6 +9,8 @@ import MdxComponent from "@/components/MdxComponents/MdxComponent";
 const PostContent = (props: IPost) => {
   const { body, date, tags, thumbnail, title, description } = props;
 
+  console.log({ thumbnail1: thumbnail });
+
   return (
     <div className={cn("w-full xl:max-w-[800px]")}>
       <div className="flex flex-col mt-10">
