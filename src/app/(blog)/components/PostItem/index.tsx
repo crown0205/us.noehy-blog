@@ -18,6 +18,7 @@ interface IPostItemProps {
 const PostItem = (props: IPostItemProps) => {
   const { title, description, date, tags, thumbnail, slug } = props;
 
+
   return (
     <article className={cn("border-b border-border py-3", "h-full flex")}>
       {/* [ ] : 컨텐츠 썸네일 넣을시 이미지 사이즈에 따라서 height 차이 남 - 체크 필요 */}
@@ -33,7 +34,7 @@ const PostItem = (props: IPostItemProps) => {
           className={cn(
             "bg-gray-400",
             "min-w-[100%]",
-            "min-h-[200px] max-h-[300px]",
+            "min-h-[200px] max-h-[200px]",
             "rounded-md"
           )}
           src={thumbnail}

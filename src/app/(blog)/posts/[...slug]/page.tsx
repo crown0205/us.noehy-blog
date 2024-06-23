@@ -33,12 +33,6 @@ export const generateMetadata = async ({
   const ogSearchParams = new URLSearchParams();
   ogSearchParams.set("title", post.title);
 
-  console.log({
-    ogSearchParams: ogSearchParams.toString(),
-    metaParams: params,
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? siteConfig.url,
-  });
-
   return {
     title: post.title,
     description: post.description,

@@ -31,6 +31,27 @@ const components = {
     />
   ),
 
+  // [ ] : gif 테스트 필요
+  img: (props: { src: string; alt: string }) => {
+    const { src, alt } = props;
+    return (
+      <figure className="flex flex-col h-auto justify-center  w-full gap-2">
+        <a href={src} target="_blank">
+          <Image
+            className="m-0 rounded-md overflow-hidden"
+            src={src}
+            alt={alt}
+            width={100}
+            height={100}
+            layout="responsive"
+          />
+        </a>
+
+        <figcaption className="text-center m-0">{alt}</figcaption>
+      </figure>
+    );
+  },
+
   ol: (props: any) => <ol className="list-inside pl-0 mb-0" {...props} />,
   ul: (props: any) => <ul className="p-0" {...props} />,
   li: (props: any) => (

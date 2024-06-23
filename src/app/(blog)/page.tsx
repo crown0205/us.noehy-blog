@@ -1,7 +1,6 @@
-import PostItem from "./components/PostItem";
 import { posts } from "#site/contents";
 import { cn, sortPost } from "@/lib/utils";
-import { Metadata } from "next";
+import PostItem from "./components/PostItem";
 
 // [ ] : route를 이렇게 하는게 최선인지?
 const BlogPage = async () => {
@@ -37,9 +36,7 @@ const BlogPage = async () => {
           </p>
         </div>
       </div>
-
       <hr className="mt-8" />
-
       <ul>
         {postsData.length > 0 ? (
           // NOTE : md(768px) 이상에서만 2개씩 보이기

@@ -7,6 +7,15 @@ export default {
     config.plugins.push(new VeliteWebpackPlugin());
     return config;
   },
+  // NOTE : 이미지 경로 변경 하려고 시도했으나 실패... 다시 시도해보기
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/images/:path*", //  match all routes starting with /images/ // https://nextjs.org/docs/api-reference/next.config.js/rewrites
+  //       destination: "/contents/:path*",
+  //     },
+  //   ];
+  // },
 };
 
 class VeliteWebpackPlugin {
