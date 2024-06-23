@@ -1,4 +1,5 @@
 import Image from "next/image";
+// import Image from "next/legacy/image";
 import * as runtime from "react/jsx-runtime";
 import { Callout } from "@/components/MdxComponents";
 import { cn } from "@/lib/utils";
@@ -35,20 +36,19 @@ const components = {
   img: (props: { src: string; alt: string }) => {
     const { src, alt } = props;
     return (
-      <figure className="flex flex-col h-auto justify-center  w-full gap-2">
+      <span className="flex flex-col h-auto justify-center  w-full h-auto gap-2">
         <a href={src} target="_blank">
           <Image
-            className="m-0 rounded-md overflow-hidden"
-            src={src}
-            alt={alt}
+            className="w-full h-auto m-0 rounded-md"
+            layout="responsive"
             width={100}
             height={100}
-            layout="responsive"
+            {...props}
           />
         </a>
 
-        <figcaption className="text-center m-0">{alt}</figcaption>
-      </figure>
+        <span className="text-center m-0">{alt}</span>
+      </span>
     );
   },
 

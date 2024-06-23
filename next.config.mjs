@@ -16,6 +16,10 @@ export default {
   //     },
   //   ];
   // },
+
+  images: {
+    formats: ["image/webp"],
+  },
 };
 
 class VeliteWebpackPlugin {
