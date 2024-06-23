@@ -4,6 +4,8 @@ import "@/styles/mdx.css";
 import { notFound } from "next/navigation";
 import PostContent from "./components/PostContent";
 import PostToc from "./components/PostToc";
+import { Metadata } from "next";
+import { siteConfig } from "@/config/site";
 
 interface IPostPageProps {
   params: {
@@ -17,6 +19,53 @@ const getPostFromPrams = async (params: IPostPageProps["params"]) => {
   const post = posts.find((post) => post.slug === slug);
 
   return post;
+};
+
+export const generateMetadata = async ({
+  params,
+}: IPostPageProps): Promise<Metadata> => {
+  const post = await getPostFromPrams(params);
+
+  if (!post) {
+    return {};
+  }
+
+  const ogSearchParams = new URLSearchParams();
+  ogSearchParams.set("title", post.title);
+
+  console.log({
+    ogSearchParams: ogSearchParams.toString(),
+    metaParams: params,
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? siteConfig.url,
+  });
+
+  return {
+    title: post.title,
+    description: post.description,
+    authors: { name: siteConfig.author },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      url: post.slug,
+      images: [
+        {
+          url: `/api/og?${ogSearchParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [
+        { url: `/api/og?${ogSearchParams.toString()}`, alt: post.title },
+      ],
+    },
+  };
 };
 
 // NOTE : generateStaticParams 함수는 페이지의 정적 경로를 생성한다.

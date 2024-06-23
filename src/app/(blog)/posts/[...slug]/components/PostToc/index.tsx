@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const PostToc = () => {
   // NOTE : mdx style 불러와서 여기서는 style 초기화 해줘야됨.
-  // TODO : side bar style 수정할지 고민
+  // [ ] : side bar style 수정할지 고민
   return (
     <aside className={cn("absolute right-[19%]")}>
       <div
