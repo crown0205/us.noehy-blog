@@ -9,6 +9,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   // [ ] : 추후 디자인 변경 필요
+  // [ ] : stack icon 추가
   // [ ] : 컴포넌트 분리
   // [ ] : data constant로 분리
 
@@ -97,7 +99,9 @@ const AboutPage = () => {
             <img src="#" alt="#" />
           </div>
           {/* NOTE : Author */}
-          <h2 className="text-2xl font-bold text-center break-words">정현수</h2>
+          <h2 className="text-2xl font-bold text-center break-words">
+            {siteConfig.kr_name}
+          </h2>
           <p className="text-muted-foreground text-center break-words">
             Frontend Developer
           </p>

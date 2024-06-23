@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import SiteHeader from "../components/common/SiteHeader";
 import ThemeProviders from "../components/common/ThemeProviders";
 import { siteConfig } from "@/config/site";
+import SiteFooter from "@/components/common/SiteFooter";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <ThemeProviders>
             <SiteHeader />
             {children}
+            <SiteFooter />
           </ThemeProviders>
         </div>
       </body>
