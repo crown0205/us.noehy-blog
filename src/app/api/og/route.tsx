@@ -21,8 +21,6 @@ export async function GET(req: NextRequest) {
 
     const heading = title.length > 140 ? title.slice(0, 140) + "..." : title;
 
-    console.log({ heading, title });
-
     return new ImageResponse(
       (
         <div tw="flex relative flex-col p-12 w-full h-full items-start text-black bg-white">
@@ -40,7 +38,7 @@ export async function GET(req: NextRequest) {
               <path d="M4 4a16 16 0 0 1 16 16" />
               <circle cx="5" cy="19" r="1" />
             </svg>
-            <p tw="ml-2 font-bold text-2xl">Us.noeyh-Blog</p>
+            <p tw="ml-2 font-bold text-2xl">{siteConfig.name}</p>
           </div>
           <div tw="flex flex-col flex-1 py-10">
             <div tw="flex text-2xl uppercase font-bold tracking-tight font-normal">

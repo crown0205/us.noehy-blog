@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Us-noeyh's Blog",
+  name: "Us.noeyh Blog",
   url: "https://us-noehy-blog.vercel.app",
   description: "한걸음씩 나아가는 기록 공간인 블로그 입니다.",
   author: "Jeong Hyeon Su",
