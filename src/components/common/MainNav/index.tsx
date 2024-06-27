@@ -16,7 +16,7 @@ const MainNav = () => {
       )}
     >
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <Icons.logo className="h-6 w-6" />
+        <Icons.logo className="h-8 w-8" />
         <span className="font-bold">{siteConfig.name}</span>
       </Link>
 
