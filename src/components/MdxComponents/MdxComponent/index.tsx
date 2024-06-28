@@ -83,24 +83,26 @@ const components = {
     />
   ),
 
-  pre: (props: any) => (
-    <pre
-      className={
-        cn()
-        // "[&_code]:font-normal [&_code]:text-current [&_code]:bg-inherit]"
-      }
-      {...props}
-    />
-  ),
+  // {backgroundColor: '#24292e', color: '#e1e4e8'}
+  pre: (props: any) => {
+    console.log("props", props);
+    return (
+      <pre
+        className={cn(
+          // NOTE : 하위 code 태그에 대한 스타일링
+          "[&_code]:font-normal [&_code]:text-current [&_code]:bg-[#24292e] [&_code]:dark:bg-[#24292e]"
+        )}
+        {...props}
+      />
+    );
+  },
   code: (props: any) => (
     <code
-      className={
-        cn()
-        // [ ] : 왜 스타일을 적용했는지 체크 하기
-        // "text-[16px] font-bold text-[#243c70] bg-[#f5f5f5]"
-        // "dark:text-[#d7f3fa] dark:bg-[#1a1a1a]",
-        // "rounded-md p-1"
-      }
+      className={cn(
+        "text-[16px] font-bold text-[#243c70] bg-[#e0e0e0]",
+        "dark:text-[#d7f3fa] dark:bg-[#1a1a1a]",
+        "rounded-md p-1"
+      )}
       {...props}
     />
   ),

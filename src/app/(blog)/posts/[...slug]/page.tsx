@@ -1,11 +1,11 @@
 import { posts } from "#site/contents";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+import { cn } from "@/lib/utils";
 import PostContent from "./components/PostContent";
-import PostToc from "./components/PostToc";
 
 interface IPostPageProps {
   params: {
@@ -88,7 +88,7 @@ const PostPage = async ({ params }: IPostPageProps) => {
   }
 
   return (
-    <article
+    <section
       className={cn(
         // NOTE : "prose" is from tailwind typography plugin
         "w-full px-8 pb-14 pt-0 mx-auto max-w-4xl",
@@ -100,8 +100,7 @@ const PostPage = async ({ params }: IPostPageProps) => {
       )}
     >
       <PostContent {...post} />
-      <PostToc />
-    </article>
+    </section>
   );
 };
 
