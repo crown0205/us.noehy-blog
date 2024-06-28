@@ -6,6 +6,8 @@ import PostItem from "./components/PostItem";
 const BlogPage = async () => {
   const postsData = sortPost(posts.filter((post) => post.published));
 
+  console.log({ postsData: postsData.map((post) => post.tags) });
+
   return (
     <div
       className={cn(
