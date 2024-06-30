@@ -32,23 +32,18 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
+          "relative",
+          "min-h-dvh",
+          "flex flex-col",
+          "bg-background",
           inter.variable
         )}
       >
-        <div
-          className={cn(
-            "relative",
-            "min-h-dvh",
-            "flex flex-col",
-            "bg-background"
-          )}
-        >
-          <ThemeProviders>
-            <SiteHeader />
-            {children}
-            <SiteFooter />
-          </ThemeProviders>
-        </div>
+        <ThemeProviders>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </ThemeProviders>
       </body>
     </html>
   );

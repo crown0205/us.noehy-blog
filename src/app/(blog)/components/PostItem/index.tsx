@@ -29,23 +29,25 @@ const PostItem = (props: IPostItemProps) => {
         )}
       >
         {/* [ ] : img 사이즈 수정 */}
-        <Image
-          className={cn(
-            "bg-gray-400",
-            "min-w-[100%]",
-            "min-h-[200px] max-h-[250px]",
-            "sm:min-h-[300px] md:max-h-[300px]",
-            "rounded-md"
-          )}
-          src={thumbnail}
-          alt={`thumbnail for ${title}`}
-          width={800}
-          height={400}
-          priority
-          style={{
-            objectFit: "cover",
-          }}
-        />
+        <div className="relative">
+          <Image
+            className={cn(
+              "bg-gray-400",
+              "min-w-[100%]",
+              "min-h-[200px] max-h-[250px]",
+              "sm:min-h-[300px] md:max-h-[300px]",
+              "rounded-md"
+            )}
+            src={thumbnail}
+            alt={`thumbnail for ${title}`}
+            width={800}
+            height={400}
+            priority
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        </div>
         <div className="mt-6">
           <h2 className="text-2xl font-bold">{title}</h2>
         </div>
@@ -70,10 +72,24 @@ const PostItem = (props: IPostItemProps) => {
               <span>{formatDate(date)}</span>
             </dd>
           </dl>
+        </div>
+        <div className="flex justify-between gap-1">
+          <div className="flex gap-1 items-center flex-1">
+            {tags.map((tag) => {
+              return (
+                <small
+                  key={tag}
+                  className="px-2 py-1 rounded-sm shadow-sm bg-[#e6e6e6] dark:bg-slate-800"
+                >
+                  {tag}
+                </small>
+              );
+            })}
+          </div>
           <small
             className={cn(
               buttonVariants({ variant: "link" }),
-              "flex items-center gap-1",
+              "flex items-center justify-end gap-1 flex-1",
               "text-sm sm:text-base"
             )}
           >
