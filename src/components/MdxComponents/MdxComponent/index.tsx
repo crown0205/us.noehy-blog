@@ -85,7 +85,6 @@ const components = {
 
   // {backgroundColor: '#24292e', color: '#e1e4e8'}
   pre: (props: any) => {
-    console.log("props", props);
     return (
       <pre
         className={cn(

@@ -76,9 +76,11 @@ const PostItem = (props: IPostItemProps) => {
         <div className="flex justify-between gap-1">
           <div className="flex gap-1 items-center flex-1">
             {tags.map((tag) => {
-              console.log(tag);
               return (
-                <small className="px-2 py-1 rounded-sm shadow-sm bg-[#e6e6e6] dark:bg-slate-800">
+                <small
+                  key={tag}
+                  className="px-2 py-1 rounded-sm shadow-sm bg-[#e6e6e6] dark:bg-slate-800"
+                >
                   {tag}
                 </small>
               );
