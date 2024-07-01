@@ -1,4 +1,5 @@
 import Image from "next/image";
+// import Image from "next/legacy/image";
 import * as runtime from "react/jsx-runtime";
 import { Callout } from "@/components/MdxComponents";
 import { cn } from "@/lib/utils";
@@ -31,6 +32,26 @@ const components = {
     />
   ),
 
+  // [ ] : gif 테스트 필요
+  img: (props: { src: string; alt: string }) => {
+    const { src, alt } = props;
+    return (
+      <span className="flex flex-col h-auto justify-center  w-full h-auto gap-2">
+        <a href={src} target="_blank">
+          <Image
+            className="w-full h-auto m-0 rounded-md"
+            layout="responsive"
+            width={100}
+            height={100}
+            {...props}
+          />
+        </a>
+
+        <span className="text-center m-0">{alt}</span>
+      </span>
+    );
+  },
+
   ol: (props: any) => <ol className="list-inside pl-0 mb-0" {...props} />,
   ul: (props: any) => <ul className="p-0" {...props} />,
   li: (props: any) => (
@@ -62,24 +83,25 @@ const components = {
     />
   ),
 
-  pre: (props: any) => (
-    <pre
-      className={
-        cn()
-        // "[&_code]:font-normal [&_code]:text-current [&_code]:bg-inherit]"
-      }
-      {...props}
-    />
-  ),
+  // {backgroundColor: '#24292e', color: '#e1e4e8'}
+  pre: (props: any) => {
+    return (
+      <pre
+        className={cn(
+          // NOTE : 하위 code 태그에 대한 스타일링
+          "[&_code]:font-normal [&_code]:text-current [&_code]:bg-[#24292e] [&_code]:dark:bg-[#24292e]"
+        )}
+        {...props}
+      />
+    );
+  },
   code: (props: any) => (
     <code
-      className={
-        cn()
-        // [ ] : 왜 스타일을 적용했는지 체크 하기
-        // "text-[16px] font-bold text-[#243c70] bg-[#f5f5f5]"
-        // "dark:text-[#d7f3fa] dark:bg-[#1a1a1a]",
-        // "rounded-md p-1"
-      }
+      className={cn(
+        "text-[16px] font-bold text-[#243c70] bg-[#e0e0e0]",
+        "dark:text-[#d7f3fa] dark:bg-[#1a1a1a]",
+        "rounded-md p-1"
+      )}
       {...props}
     />
   ),

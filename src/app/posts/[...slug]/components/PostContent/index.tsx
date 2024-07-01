@@ -1,16 +1,19 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { IPost } from "../../page";
-import { cn, formatDate } from "@/lib/utils";
 import MdxComponent from "@/components/MdxComponents/MdxComponent";
+import { cn, formatDate } from "@/lib/utils";
+import Image from "next/image";
+import { useState } from "react";
+import { IPost } from "../../page";
+import PostToc from "../PostToc";
 
 const PostContent = (props: IPost) => {
   const { body, date, tags, thumbnail, title, description } = props;
 
+  const [postElement, setPostElement] = useState<HTMLElement | null>(null);
+
   return (
-    <div className={cn("w-full xl:max-w-[800px]")}>
+    <article className={cn("w-full xl:max-w-[800px]")}>
       <div className="flex flex-col mt-10">
         <h1 className="mb-2 text-4xl font-black">{title}</h1>
         {description ? (
@@ -28,7 +31,8 @@ const PostContent = (props: IPost) => {
         className={cn(
           "bg-gray-400",
           "w-[100%] ",
-          "min-h-[200px] max-h-[300px]",
+          "min-h-[200px] max-h-[400px]",
+          "md:min-h-[400px] md:max-h-[450px]",
           "rounded-md border-[2px]"
         )}
         src={thumbnail}
@@ -40,10 +44,13 @@ const PostContent = (props: IPost) => {
           objectFit: "cover",
         }}
       />
-      <div>
+      <div ref={setPostElement}>
         <MdxComponent code={body} />
       </div>
-    </div>
+
+      {/* [ ] : 애니메이션 추가 - 한박자 늦게 뜨기 때문 */}
+      <PostToc title={title} postElement={postElement} />
+    </article>
   );
 };
 

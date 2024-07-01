@@ -1,11 +1,11 @@
 import { posts } from "#site/contents";
-import { cn } from "@/lib/utils";
-import "@/styles/mdx.css";
-import { notFound } from "next/navigation";
-import PostContent from "./components/PostContent";
-import PostToc from "./components/PostToc";
-import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
+import "@/styles/mdx.css";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { cn } from "@/lib/utils";
+import PostContent from "./components/PostContent";
 
 interface IPostPageProps {
   params: {
@@ -32,12 +32,6 @@ export const generateMetadata = async ({
 
   const ogSearchParams = new URLSearchParams();
   ogSearchParams.set("title", post.title);
-
-  console.log({
-    ogSearchParams: ogSearchParams.toString(),
-    metaParams: params,
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? siteConfig.url,
-  });
 
   return {
     title: post.title,
@@ -94,19 +88,19 @@ const PostPage = async ({ params }: IPostPageProps) => {
   }
 
   return (
-    <article
+    <section
       className={cn(
         // NOTE : "prose" is from tailwind typography plugin
-        "w-full px-8 prose py-14 mx-auto max-w-4xl",
+        "w-full px-8 pb-14 pt-0 mx-auto max-w-4xl",
         "flex justify-around",
-        "dark:prose-invert",
-        // NOTE : xl 이상에서만 적용되는 클래스
+        "prose dark:prose-invert",
+        // NOTE :반응형 디자인
+        "md:pt-5 lg:pt-10",
         "xl:max-w-6xl xl:px-0"
       )}
     >
       <PostContent {...post} />
-      <PostToc />
-    </article>
+    </section>
   );
 };
 
