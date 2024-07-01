@@ -2,6 +2,7 @@ import { posts } from "#site/contents";
 
 const useTags = () => {
   const tags = posts
+    .filter((post) => post.published)
     .map((post) => post.tags)
     .flat()
     .reduce(
