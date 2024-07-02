@@ -53,13 +53,16 @@ const components = {
   },
 
   ol: (props: any) => <ol className="list-inside pl-0 mb-0" {...props} />,
-  ul: (props: any) => <ul className="p-0" {...props} />,
-  li: (props: any) => (
-    <li
-      className="list-none before:content-['•'] before:pr-4 before:text-[#36587de3] before:dark:text-[#CBD5E0] break-keep break-words"
+  ul: (props: any) => (
+    <ul
+      className={cn(
+        "p-0 list-none break-keep break-words",
+        "[&_li]:before:content-['•'] [&_li]:before:pr-4 [&_li]:before:text-[#36587de3] [&_li]:before:dark:text-[#CBD5E0]"
+      )}
       {...props}
     />
   ),
+  li: (props: any) => <li {...props} />,
 
   a: (props: any) => {
     const blankCheck =

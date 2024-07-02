@@ -6,6 +6,6 @@ export const siteConfig = {
   kr_name: "정현수",
   links: {
     // [ ] 수정 필요
-    github: "https:github.com/crown0205",
+    github: "https://github.com/crown0205",
   },
 };

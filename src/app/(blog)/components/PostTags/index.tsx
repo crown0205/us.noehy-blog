@@ -12,7 +12,7 @@ const PostTags = () => {
   const { tags } = useTags();
 
   return (
-    <section className="flex gap-2 flex-wrap">
+    <div className="flex gap-2 flex-wrap">
       {tags.map(({ tagName, count, path }) => (
         <Link href={`${path}`} key={tagName}>
           <Badge
@@ -27,7 +27,7 @@ const PostTags = () => {
           </Badge>
         </Link>
       ))}
-    </section>
+    </div>
   );
 };
 
