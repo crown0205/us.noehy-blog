@@ -17,6 +17,7 @@ const PostToc = ({ title, postElement }: IPostTocProps) => {
   // NOTE : mdx style 불러와서 여기서는 style 초기화 해줘야됨.
   // [ ] : side bar style 수정할지 고민
   // [ ] : 로직 수정 필요 & 최적화 필요 (hook으로 분리 필요)
+  // [ ] : Toc 클릭시 스크롤 이동 로직 수정 필요 - (my-interview의 페이지 참고)
   const [activeId, setActiveId] = useState<string>("");
 
   const [headings, setHeadings] = useState<Heading[]>([]);
@@ -86,7 +87,8 @@ const PostToc = ({ title, postElement }: IPostTocProps) => {
         className={cn(
           "hidden xl:block",
           "fixed top-[160px]",
-          "h-[fit-content] w-[fit-content] min-w-[100px] max-w[150px]",
+          "h-[fit-content] max-h-[450px] w-[fit-content] min-w-[100px] max-w[150px]",
+          "overflow-y-auto",
           "p-4"
         )}
       >
