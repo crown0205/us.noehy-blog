@@ -2,9 +2,16 @@ import { cn } from "@/lib/utils";
 
 import PostList from "../PostList";
 import PostTags from "../PostTags";
+import PageNation from "@/components/common/PageNation";
+
+export interface IPostTemplateProps {
+  searchParams: { page: string };
+}
 
 // [ ] : PostTemplate 컴포넌트 수정 ==> Template을 이렇게 하는게 최선인지?
-const PostTemplate = () => {
+const PostTemplate = ({ searchParams }: IPostTemplateProps) => {
+  const currentPage = Number(searchParams.page) || 1;
+
   return (
     <div
       className={cn(
@@ -37,9 +44,11 @@ const PostTemplate = () => {
         </div>
 
         <PostTags />
+        <hr className="mt-8" />
+        <PostList currentPage={currentPage} />
+
+        <PageNation currentPage={currentPage} />
       </div>
-      <hr className="mt-8" />
-      <PostList />
     </div>
   );
 };
