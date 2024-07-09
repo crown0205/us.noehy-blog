@@ -33,11 +33,11 @@ const PageNation = ({ currentPage }: IPageNationProps) => {
           <button
             key={idx}
             className={cn(
-              "px-2 py-1 mx-1 border border-gray-300 rounded-md",
+              "px-2 py-1 mx-1 border border-gray-300 rounded-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-800",
               idx + 1 !== currentPage &&
-                "hover:bg-gray-100 hover:border-gray-400 hover:text-gray-800",
+                "hover:bg-gray-100 hover:border-gray-400 hover:text-gray-800 dark:hover:bg-gray-500 dark:hover:border-gray-600 dark:hover:text-gray-200",
               idx + 1 !== currentPage &&
-                "active:bg-gray-200 active:border-gray-500 active:text-gray-900",
+                "active:bg-gray-200 active:border-gray-500 active:text-gray-900 dark:active:bg-gray-600 dark:active:border-gray-500 dark:active:text-gray-200",
               idx + 1 === currentPage ? "bg-gray-200" : ""
             )}
             disabled={idx + 1 === currentPage}
